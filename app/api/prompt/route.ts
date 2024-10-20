@@ -124,7 +124,7 @@ export async function POST(req: Request) {
 
   try {
     const response = await openai.chat.completions.create({
-      model: "claude-3-5-sonnet",
+      model: process.env.OPENAI_MODEL || "gpt-4o-mini",
       max_tokens: 1024,
       messages: [
         { role: "system", content: systemPrompt },
